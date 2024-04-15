@@ -5,6 +5,7 @@ import Counter from './Components/Counter';
 import User from './Components/useStateObjects';
 import ConditionalRendering from './Components/ConditionRendering';
 import Album from './Components/Assignments/Album';
+import PostList from './Components/Assignments/PostList';
 
 
 // import GreetClass from './Components/GreetClass';
@@ -37,6 +38,7 @@ function App() {
         {/* <Greet props={employee}></Greet> */}
       {/* </h1> */}
       <Album />
+      <PostList />
     </div>
   );
 }
