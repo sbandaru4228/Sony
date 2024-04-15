@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-function album() {
+function Album() {
     const [albums, setAlbums] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     useEffect(() => {
-        const fetchAlbums = async () => {
+        const fetchData = async () => {
             setIsLoading(true);
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/albums');
@@ -24,4 +24,21 @@ function album() {
         fetchData();
     }, []);
 
+    return (
+        <>
+            {isLoading && <p>Loading albums</p>}
+            {error && <p>{error}</p>}
+            {!isLoading && !error && (
+                <ul>
+                    {albums.map(album => (
+                        <li key={album.id}>{album.title}</li>
+                    ))}
+                </ul>
+            )}
+        </>
+    );
+
+
 }
+
+export default Album;
